@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laravel</title>
+    <style>
+        * { margin: 0;padding: 0;}
+        ul { list-style: none;}
+        a { text-decoration: none;}
+        i {font-style: normal;}
+        .clearfix:after {display: block;content: "200B";height: 0;font-size: 0;clear: both;}
+        .inner {width: 1140px;margin: 0 auto;}
+        .isShow {display: none;}
+        header {width: 100%;background: url("images/44e1c4e50d55159c65da6a41bc07e.jpg") no-repeat;}
+        header h1 {height: 145px; line-height: 145px;padding-top: 33px;color: #fff;text-align: center;font-size: 40px;font-weight: normal;}
+        header ul {text-align: center;}
+        header li {margin-right: 4px;padding-bottom: 22px;display: inline-block;}
+        header li a {border: 1px solid #f2463f;color: #fff;padding: 11px 14px;border-radius: 2px;display: block; font-size: 14px;}
+        header li a:hover {background: #000;}
+
+        nav {border-top: 1px solid #f3f3f3;border-bottom: 1px solid #e1e1e1;}
+        nav ul {text-align: center;}
+        nav li { display: inline-block;}
+        nav li a {display: block;padding: 21px 21px 23px;color: #505050;font-size: 14px;}
+        nav li a:hover {color: #f4645f;}
+
+        .main {background: #ebebeb;padding-top: 36px;}
+        .main article { text-align: center;float: left; width: 750px;}
+        .main article section {border-bottom: 1px solid #f1f1f1;background: #fff;padding: 26px 35px 56px;margin-bottom: 35px;}
+        .main article section h2 {font-weight: normal;line-height: 51px;color: #303030;}
+        .main article section span {font-size: 12px;color: #959595;padding-bottom: 26px;line-height: 34px;height: 34px;display: block;}
+        .main article section span i { color: #f4645f;}
+        .main article section span i:hover {text-decoration: underline;}
+        .main article section img {width: 100%;}
+        .main article section .pic {font-size: 0;padding-bottom: 29px;}
+        .main article section p { line-height: 30px; color: #444443;font-size: 18px;text-align: left;padding-bottom: 30px;}
+        .main article section a {background: #f4645f;color: #fff;border-radius: 4px;display: block;width: 85px; height: 36px; line-height: 36px;font-size: 14px;margin-bottom: 30px;}
+        .main article section a:hover {background: #000;}
+        .main article .paging {display: inline-block;margin-bottom: 35px;}
+        .main article .paging .txt { width: 127px; height: 36px; line-height: 36px;float: left;margin-right: 7px; background: #f4645f;color: #fff;}
+        .main article .paging a {float: left; width: 36px; height: 36px; line-height: 36px;color: #fff;background: #f4645f;}
+
+        .main aside {float: right;width: 360px;}
+        .main aside>div {background: #fff;padding: 12px 30px 27px;}
+        .main aside h3 { height: 39px; line-height: 39px; color: #303030;font-size: 20px; font-weight: normal;border-bottom: 1px solid #f5f5f5;position: relative;margin-bottom: 16px;}
+        .main aside h3 span {position: absolute;left: 0;bottom: -1px;display: block; width: 90px; height: 1px;background: #f4645f;}
+        .main aside p { height: 34px;line-height: 34px; color: #505050;font-size: 14px;}
+        .main aside .p1 a { color: #f4645f;padding-left: 18px;background: url(images/2017-08-07T11-42-39_03.png) no-repeat 0 center;}
+        .main aside .p1 a:hover {text-decoration: underline;}
+        .main aside .title { margin-bottom: 35px;}
+        .main aside .load a {background: #f4645f;font-size: 14px;color: #fff;border-radius: 4px;display: block;width: 100%; height: 36px; line-height: 36px;text-align: center;}
+        .main aside .load a:hover {background: #000;}
+        .main aside .load { margin-bottom: 35px;}
+        .main aside .word a {font-size: 14px;background: #f4645f;border-radius: 4px; width: 100%; height: 36px; line-height: 36px;display: block;text-align: center;margin-bottom: 5px; color: #fff;}
+        .main aside .word a:hover {background: #000;}
+
+        footer {background: #202020;padding-bottom: 34px;border: 1px solid #252525;}
+        footer dl { width: 300px;float: left; padding-top: 26px; margin: 0 30px;}
+        footer dt {color: #fff; height: 39px; line-height: 39px;border-bottom: 1px solid #2d2d2d;position: relative;}
+        footer dt span {display: block; width: 90px; height: 1px;background: #f4645f;position: absolute; left: 0; bottom: -1px;}
+        footer dd {border-bottom: 1px dashed #2d2d2d;line-height: 25px;padding: 20px 0 13px;}
+        footer dd p a {color: #959595;}
+        footer dd time { color: #505050;}
+        footer .ellipsis {border: none;}
+        footer a:hover {color: #f4645f;}
+
+        .bottom {background: #111;}
+        .bottom p {text-align: center;color: #555;font-size: 12px;padding: 34px 0;}
+        .bottom p a {color: #555;}
+        .bottom p a:hover {text-decoration: underline;}
+
+        @media screen and (max-width: 1200px){
+            .inner {width: 970px;}
+            .main article { width: 59%;}
+            .main aside {width: 31%;}
+        }
+
+        @media screen and (max-width: 990px){
+            .inner {width: 720px;}
+            .main article {float: none;}
+            .main article {width: 100%;}
+            .main aside {float: none; width: 100%;}
+            .isHide {display: none;}
+            .isShow {display: inline-block;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap inner">
+            <h1>为 WEB 艺术家创造的 PHP 框架。</h1>
+            <ul class="clearfix isHide">
+                <li><a href="javascript:;">5.4中文文档</a></li>
+                <li><a href="javascript:;">5.3中文文档</a></li>
+                <li><a href="javascript:;">5.2中文文档</a></li>
+                <li><a href="javascript:;">5.1中文文档</a></li>
+                <li><a href="javascript:;">5.0中文文档</a></li>
+                <li><a href="javascript:;">4.2中文文档</a></li>
+                <li><a href="javascript:;">4.1中文文档</a></li>
+                <li><a href="javascript:;">4.0中文文档</a></li>
+                <li><a href="javascript:;">Lumen中文文档</a></li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <div class="wrap inner">
+            <a href="javascript:;" class="isShow">点击显示导航</a>
+            <ul class="clearfix isHide">
+                <li><a href="javascript:;">首页</a></li>
+                <li><a href="javascript:;">Laravel 中文文档</a></li>
+                <li><a href="javascript:;">Packagist 中国镜像</a></li>
+                <li><a href="javascript:;">Composer 中文文档</a></li>
+                <li><a href="javascript:;">PHP 中文手册</a></li>
+                <li><a href="javascript:;">PHP 编程之道</a></li>
+                <li><a href="javascript:;">问答社区</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="wrap inner clearfix">
+            <article>
+                <section>
+                    <h2>Laravel 5.5 将是下一个 LTS 版本，预计 7/8 月份发布</h2>
+                    <span>作者：<i>王赛</i> • 2017年02月20日</span>
+                    <div class="pic">
+                        <img src="images/0540baaed781628b02aac992d1c8f.png" alt="">
+                    </div>
+                    <p>Laravel 的上一个 LTS（长期支持）版本是 Laravel 5.1，发布于 2015 年 6 月，按照对 LTS 版本的约定，两年的 bug 修复支持到今年中旬就结束了，所以今年中旬必然要出一个 LTS 后继版本，就是 Laravel 5.5。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>Laravel 5.4 版本正式发布</h2>
+                    <span>作者：<i>王赛</i> • 2017年01月24日</span>
+                    <div class="pic">
+                        <img src="images/7a406073b512ef16a891127824c7b.jpg" alt="">
+                    </div>
+                    <p>Laravel 5.4 版本正式发布了！这一版本带来了很多新特性以及对原有功能的提升。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>Laravel 之父：让 Laravel、Symfony、 Zend 来一场公平的性能测试</h2>
+                    <span>作者：<i>王赛</i> • 2017年01月12日</span>
+                    <p>网上充斥着各式各样的 PHP 框架性能对比的文章。然而，他们总是把“苹果”和“橘子”做对比（看上去有点儿像，都是圆的，但其实不是一码事）。这次，我将着重对 Laravel、Symfony 和 Zend 这三个框架做性能对比，并且还要说明为什么这三个框架总是被错误的进行比较。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>Laravel 5.3 正式发布</h2>
+                    <span>作者：<i>王赛</i> • 2016年08月23日</span>
+                    <div class="pic">
+                        <img src="images/c367f99a8366ca86f7b889da25022.png" alt="">
+                    </div>
+                    <p>Laravel 项目组自豪地宣布 Laravel 5.3 正式发布了 ！5.3 版本中的新增特性主要集中在提升开发速度，通过增强常见任务的开箱即用功能提升开发效率。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>Laracon 开发者大会快报：听 Taylor Otwell 讲解 Laravel 5.3 的新特性</h2>
+                    <span>作者：<i>王赛</i> • 2016年07月28日</span>
+                    <div class="pic">
+                        <img src="images/d0b8c085dec30605e2c3e9e773d00.png" alt="">
+                    </div>
+                    <p>今天， Taylor Otwell 在 Laracon US 开发者大会上就 Laravel 5.3 的新特性作了长时间的演讲，演讲内容主要概括为四个方面：Laravel Scout、Laravel Passport、Laravel Mailable 和 Laravel Notifications。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>Laravel 五岁了</h2>
+                    <span>作者：<i>王赛</i> • 2016年06月11日</span>
+                    <div class="pic">
+                        <img src="images/f05fc8d95497bad948ac46eb68d9d.jpg" alt="">
+                    </div>
+                    <p>五年前（2011年6月11日）的今天，Taylor Otwell 将 Laravel 带到了这个世界！</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>2016 版 Laravel 系列入门教程（一）</h2>
+                    <span>作者：<i>王赛</i> • 2016年06月06日</span>
+                    <div class="pic">
+                        <img src="images/11130f096dbec743756b69cbb22f9.jpg" alt="">
+                    </div>
+                    <p>在任何地方卡住，最快的办法就是去看示例代码。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>2016 版 Laravel 系列入门教程（二）</h2>
+                    <span>作者：<i>王赛</i> • 2016年06月06日</span>
+                    <div class="pic">
+                        <img src="images/11130f096dbec743756b69cbb22f9.jpg" alt="">
+                    </div>
+                    <p>在任何地方卡住，最快的办法就是去看示例代码。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>2016 版 Laravel 系列入门教程（三）</h2>
+                    <span>作者：<i>王赛</i> • 2016年06月06日</span>
+                    <div class="pic">
+                        <img src="images/11130f096dbec743756b69cbb22f9.jpg" alt="">
+                    </div>
+                    <p>在任何地方卡住，最快的办法就是去看示例代码。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <section>
+                    <h2>2016 版 Laravel 系列入门教程（四）</h2>
+                    <span>作者：<i>王赛</i> • 2016年06月06日</span>
+                    <div class="pic">
+                        <img src="images/11130f096dbec743756b69cbb22f9.jpg" alt="">
+                    </div>
+                    <p>在任何地方卡住，最快的办法就是去看示例代码。</p>
+                    <a href="javascript:;">阅读全文</a>
+                </section>
+                <div class="paging clearfix">
+                    <div class="txt">第1页/共7页</div>
+                    <a href="javascript:;">></a>
+                </div>
+            </article>
+            <aside>
+                <div class="title">
+                    <h3>社区<span></span></h3>
+                    <p>QQ群：462694081</p>
+                    <p class="p1"><a href="javascript:;">问答社区</a></p>
+                </div>
+                <div class="load">
+                    <h3>下载<span></span></h3>
+                    <a href="javascript:;">Laravel & Lumen 一键安装包下载</a>
+                </div>
+                <div class="word">
+                    <h3>文档<span></span></h3>
+                    <a href="javascript:;">5.4 中文文档</a>
+                    <a href="javascript:;">5.3 中文文档</a>
+                    <a href="javascript:;">5.2 中文文档</a>
+                    <a href="javascript:;">5.1 中文文档</a>
+                    <a href="javascript:;">5.0 中文文档</a>
+                    <a href="javascript:;">4.2 中文文档</a>
+                    <a href="javascript:;">4.1 中文文档</a>
+                    <a href="javascript:;">4.0 中文文档</a>
+                    <a href="javascript:;">Lumen 中文文档</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <footer>
+        <div class="wrap clearfix inner">
+            <dl>
+                <dt>最新文章<span></span></dt>
+                <dd>
+                    <p><a href="javascript:;">Laravel 5.5 将是下一个 LTS 版本，预计 7/8 月份发布</a></p>
+                    <time>2017年02月20日</time>
+                </dd>
+                <dd>
+                    <p><a href="javascript:;">Laravel 5.4 版本正式发布</a></p>
+                    <time>2017年01月24日</time>
+                </dd>
+                <dd>
+                    <p><a href="javascript:;">Laravel 之父：让 Laravel、Symfony、 Zend 来一场公平的性能测试</a></p>
+                    <time>2017年01月12日</time>
+                </dd>
+            </dl>
+            <dl>
+                <dt>标签云<span></span></dt>
+                <dd class="ellipsis">
+                    <p><a href="javascript:;">...</a></p>
+                </dd>
+            </dl>
+            <dl>
+                <dt>友链<span></span></dt>
+                <dd>
+                    <p><a href="javascript:;">Bootstrap中文网</a>　<a href="javascript:;">开放CDN服务</a></p>
+                    <p><a href="javascript:;">Grunt中文网</a>　<a href="javascript:;">Gulp中文网</a></p>
+                </dd>
+                <dd>
+                    <p><a href="javascript:;">Lodash中文文档</a>　<a href="javascript:;">jQuery中文文档</a></p>
+                </dd>
+                <dd class="ellipsis">
+                    <p><a href="javascript:;">又拍云</a>　<a href="javascript:;">乐视云</a></p>
+                </dd>
+            </dl>
+        </div>
+    </footer>
+    <div class="bottom">
+        <div class="wrap inner">
+            <p>Copyright © <a href="javascript:;">Laravel 中文网</a>　|　<a href="javascript:;">京ICP备11008151号</a>　|　京公网安备11010802014853</p>
+        </div>
+    </div>
+</body>
+</html>
